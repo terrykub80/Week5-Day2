@@ -1,43 +1,42 @@
-create table movie (
-movie_id serial primary key,
-movie_name VARCHAR(50) not null,
-rating VARCHAR(10) not null,
+create table flick (
+flick_id serial primary key,
+flick_name VARCHAR(50),
+rating VARCHAR(10),
 description VARCHAR(150),
-genre VARCHAR (50) not null
+genre VARCHAR (50)
 );
 
 
 create table ticket (
 ticket_id serial primary key,
-price NUMERIC(5,2) not null,
-movie_id INTEGER,
-foreign key(movie_id) references movie(movie_id),
-movie_name VARCHAR(50) not null,
-foreign key(movie_name) references movie(movie_name)
+price NUMERIC(5,2),
+flick_id INTEGER,
+foreign key(flick_id) references flick(flick_id)
 );
 
 
---create table customer(
---customer_id serial primary key,
---first_name VARCHAR(50) not null,
---last_name VARCHAR(50),
---customer_age INTEGER not null
---ticket_id INTEGER,
---foreign key(ticket_id) references ticket(ticket_id),
---price NUMERIC(2,2),
---foreign key(price) references ticket(price),
---movie_name VARCHAR(50),
---foreign key(movie_name) references movie(movie_name)
---);
+create table customer(
+customer_id serial primary key,
+first_name VARCHAR(50) not null,
+last_name VARCHAR(50),
+customer_age INTEGER not null,
+ticket_id INTEGER,
+foreign key(ticket_id) references ticket(ticket_id),
+price NUMERIC(2,2)
+);
 
 
 select *
-from movie
+from movie;
 --
---select *
---from ticket;
+select *
+from ticket;
 --
---drop table if exists customer;
+drop table if exists flick;
 
+alter table customer
+alter column price type numeric(5,2);
 
+select *
+from customer;
 

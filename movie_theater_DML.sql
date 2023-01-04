@@ -1,5 +1,5 @@
-insert into movie (
-movie_name,
+insert into flick (
+flick_name,
 rating,
 description,
 genre 
@@ -21,7 +21,49 @@ genre
 );
 
 select *
-from movie;
+from flick;
+
+insert into ticket (
+price,
+flick_id
+) values (
+7.99,
+3), (
+12.99,
+2), (
+12.99,
+1
+);
+
+select *
+from ticket;
+
+insert into customer (
+first_name,
+last_name,
+customer_age,
+ticket_id,
+price
+) values (
+'Billy',
+'Jean',
+'25',
+3,
+12.99
+), (
+'Calvin',
+'Brodus',
+'51',
+2,
+12.99
+), (
+'Tiny',
+'Tim',
+'7',
+1,
+7.99
+);
 
 
-
+select *
+from customer;
